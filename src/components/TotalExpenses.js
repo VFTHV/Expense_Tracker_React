@@ -2,14 +2,10 @@ import React from "react";
 
 const TotalExpenses = (props) => {
   const onTotalExpenses = () => {
-    if (props.inputs.length === 0) {
-      return null;
-    } else {
-      const totalExpense = props.inputs.reduce((total, num) => {
-        return total + num.amount;
-      }, 0);
-      return totalExpense;
-    }
+    const totalExpense = props.inputs.reduce((total, num) => {
+      return total + num.amount;
+    }, 0);
+    return totalExpense;
   };
 
   return (

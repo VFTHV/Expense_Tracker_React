@@ -40,9 +40,7 @@ const Table = (props) => {
           })
         )}
       </tbody>
-      {props.inputs.length === 0 ? null : (
-        <TotalExpenses inputs={props.inputs} />
-      )}
+      {props.inputs.length < 2 ? null : <TotalExpenses inputs={props.inputs} />}
     </table>
   );
 };
