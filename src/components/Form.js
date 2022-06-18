@@ -62,7 +62,7 @@ const Form = ({ onInputSubmit }) => {
             id="amount"
             className="form-control"
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => setAmount(parseInt(e.target.value))}
             required
           />
         </div>

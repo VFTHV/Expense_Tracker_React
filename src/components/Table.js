@@ -1,9 +1,10 @@
 import React from "react";
 import DeleteItem from "./DeleteItem";
+import TotalExpenses from "./TotalExpenses";
 
 const Table = (props) => {
   return (
-    <table className="table">
+    <table className="table table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -30,7 +31,7 @@ const Table = (props) => {
 
                 <td>{input.name}</td>
                 <td>{input.date}</td>
-                <td>{input.amount}</td>
+                <td>$ {input.amount}</td>
                 <td>
                   <DeleteItem onItemRemove={() => props.onItemRemove(index)} />
                 </td>
@@ -39,6 +40,9 @@ const Table = (props) => {
           })
         )}
       </tbody>
+      {props.inputs.length === 0 ? null : (
+        <TotalExpenses inputs={props.inputs} />
+      )}
     </table>
   );
 };
