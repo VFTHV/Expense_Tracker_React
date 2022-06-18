@@ -66,7 +66,10 @@ const Form = ({ onInputSubmit }) => {
             required
           />
         </div>
-        <AddExpense onClick={onSubmitClick} />
+        <AddExpense
+          allInputs={{ name, date, amount }}
+          onClick={onSubmitClick}
+        />
       </div>
     </form>
   );
