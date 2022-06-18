@@ -28,6 +28,7 @@ const Form = ({ onInputSubmit }) => {
             className="form-control"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            placeholder="Where was the expense made? "
             required
           />
         </div>

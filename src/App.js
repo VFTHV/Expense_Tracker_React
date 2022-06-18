@@ -3,23 +3,28 @@ import Form from "./components/Form";
 import Table from "./components/Table";
 
 class App extends React.Component {
-  state = {
-    inputs: [
-      {
-        name: "Mortgage",
-        date: "2022-04-03",
-        amount: 2000,
-      },
-    ],
-  };
+  constructor() {
+    super();
+
+    this.state = { inputs: [] };
+  }
 
   onInputSubmit = (name, date, amount) => {
-    const newInputs = this.state.inputs;
+    const newInputs = [...this.state.inputs];
     newInputs.push({
       name: name,
       date: date,
       amount: amount,
     });
+
+    const newState = { ...this.state };
+    newState.inputs = newInputs;
+    this.setState(newState);
+  };
+
+  onItemRemove = (index) => {
+    const newInputs = [...this.state.inputs];
+    newInputs.splice(index, 1);
 
     this.setState({ inputs: newInputs });
   };
@@ -34,7 +39,8 @@ class App extends React.Component {
           </p>
         </div>
         <Form onInputSubmit={this.onInputSubmit} />
-        <Table inputs={this.state.inputs} />
+
+        <Table inputs={this.state.inputs} onItemRemove={this.onItemRemove} />
       </div>
     );
   }
